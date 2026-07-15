@@ -197,7 +197,8 @@ export default function ExpenseTracker() {
                   paddingVertical: 5,
                   borderRadius: 15,
                   alignSelf: "flex-start",
-                  marginTop: 8,
+                            marginTop: 8,
+                  
                 }}
               >
                 <Text style={{ color: "#fff" }}>{item.category}</Text>
