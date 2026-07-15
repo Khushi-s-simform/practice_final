@@ -1,0 +1,88 @@
+import { Expense } from "@/types/expense";
+
+export const expenses: Expense[] = [
+  {
+    id: 1,
+    title: "Pizza",
+    amount: 250,
+    category: "Food",
+    date: "2026-07-15",
+  },
+  {
+    id: 2,
+    title: "Burger",
+    amount: 180,
+    category: "Food",
+    date: "2026-07-14",
+  },
+  {
+    id: 3,
+    title: "Bus Fare",
+    amount: 80,
+    category: "Travel",
+    date: "2026-07-14",
+  },
+  {
+    id: 4,
+    title: "Petrol",
+    amount: 500,
+    category: "Travel",
+    date: "2026-07-13",
+  },
+  {
+    id: 5,
+    title: "Movie Ticket",
+    amount: 350,
+    category: "Entertainment",
+    date: "2026-07-13",
+  },
+  {
+    id: 6,
+    title: "Netflix Subscription",
+    amount: 649,
+    category: "Entertainment",
+    date: "2026-07-12",
+  },
+  {
+    id: 7,
+    title: "Electricity Bill",
+    amount: 1800,
+    category: "Bills",
+    date: "2026-07-11",
+  },
+  {
+    id: 8,
+    title: "Internet Bill",
+    amount: 999,
+    category: "Bills",
+    date: "2026-07-10",
+  },
+  {
+    id: 9,
+    title: "Shoes",
+    amount: 2200,
+    category: "Shopping",
+    date: "2026-07-09",
+  },
+  {
+    id: 10,
+    title: "T-Shirt",
+    amount: 850,
+    category: "Shopping",
+    date: "2026-07-08",
+  },
+  {
+    id: 11,
+    title: "Coffee",
+    amount: 120,
+    category: "Food",
+    date: "2026-07-08",
+  },
+  {
+    id: 12,
+    title: "Train Ticket",
+    amount: 450,
+    category: "Travel",
+    date: "2026-07-07",
+  },
+];
