@@ -60,10 +60,20 @@ export default function Index() {
     setCategory("");
   };
 
+  const deleteExpense = (id: number) => {
+    setExpenses((prev) => prev.filter((expense) => expense.id !== id));
+  };
+
   const totalExpense = useMemo(() => {
     return filteredExpenses.reduce(
       (total, expense) => total + expense.amount,
       0,
+    );
+  }, [filteredExpenses]);
+
+  const heighestExpense = useMemo(() => {
+    return filteredExpenses.reduce((heighest, current) =>
+      current.amount > heighest.amount ? current : heighest,
     );
   }, [filteredExpenses]);
 
@@ -138,7 +148,11 @@ export default function Index() {
             </View>
             <View style={styles.TotalBox}>
               <Text>Total Expense : </Text>
-              <Text>{ totalExpense }</Text>
+              <Text>{totalExpense}</Text>
+            </View>
+            <View style={styles.TotalBox}>
+              <Text>Heighest Expense : </Text>
+              <Text>{heighestExpense.amount}</Text>
             </View>
           </>
         }
@@ -148,6 +162,11 @@ export default function Index() {
             <Text>₹ {item.amount}</Text>
             <Text>{item.category}</Text>
             <Text>{item.date}</Text>
+            <Ionicons
+              name="trash-bin"
+              size={20}
+              onPress={() => deleteExpense(item.id)}
+            />
           </View>
         )}
         ListEmptyComponent={
