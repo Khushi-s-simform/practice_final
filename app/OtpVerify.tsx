@@ -74,8 +74,8 @@ const OtpVerify = () => {
       console.log(enteredOtp);
 
       if (enteredOtp === StaticOtp) {
-          Alert.alert("OTP has been successfully Verified !!");
-          setIsRunning(false);
+        Alert.alert("OTP has been successfully Verified !!");
+        setIsRunning(false);
       } else {
         Alert.alert("Wrong OTP !!");
       }
