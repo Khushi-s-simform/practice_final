@@ -1,12 +1,14 @@
-import React from 'react'
-import ExpenseTracker from './ExpenseTracker'
-import StopWatch from './StopWatch'
+import React from "react";
+import ExpenseTracker from "./ExpenseTracker";
+import StopWatch from "./StopWatch";
+import OtpVerify from "./OtpVerify";
 
 const index = () => {
   return (
     /*  <ExpenseTracker /> */
-    <StopWatch />
-  )
-}
+    /*   <StopWatch /> */
+    <OtpVerify />
+  );
+};
 
-export default index
+export default index;
