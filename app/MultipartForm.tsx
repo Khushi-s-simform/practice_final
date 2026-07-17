@@ -11,29 +11,63 @@ import {
   View,
 } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
+import ReviewScreen from "./ReviewScreen";
 
 const MultipartForm = () => {
   const [currentStep, setCurrentStep] = useState(0);
 
   const [formData, setFormData] = useState({
-    firstName: "",
-    lastName: "",
-    email: "",
-    phone: "",
+    firstName: "khushi ",
+    lastName: "shah",
+    email: "k@gmail.com",
+    phone: "7894561231",
 
-    company: "",
-    designation: "",
-    experience: "",
-    salary: "",
+    company: "simform",
+    designation: "trainee",
+    experience: "1",
+    salary: "1",
 
-    country: "",
-    state: "",
-    city: "",
-    pincode: "",
+    country: "india",
+    state: "gujarate",
+    city: "surat",
+    pincode: "395006",
   });
 
   const [errors, setErrors] = useState<Record<string, string>>({});
 
+  if (currentStep === formSteps.length) {
+    return (
+      <SafeAreaView style={{ flex: 1 }}>
+        <ReviewScreen
+          formData={formData}
+          onEdit={() => setCurrentStep(formSteps.length - 1)}
+          onSubmit={() => {
+            console.log(formData);
+
+            alert("Form Submitted Successfully!");
+
+            setFormData({
+              firstName: "",
+              lastName: "",
+              email: "",
+              phone: "",
+              company: "",
+              designation: "",
+              experience: "",
+              salary: "",
+              country: "",
+              state: "",
+              city: "",
+              pincode: "",
+            });
+
+            setErrors({});
+            setCurrentStep(0);
+          }}
+        />
+      </SafeAreaView>
+    );
+  }
   const currentForm = formSteps[currentStep];
 
   const handleChange = (key: string, value: string) => {
@@ -48,8 +82,43 @@ const MultipartForm = () => {
     }));
   };
 
+  const validateStep = () => {
+    const newErrors: Record<string, string> = {};
+
+    currentForm.fields.forEach((field) => {
+      const value = formData[field.key as keyof typeof formData];
+
+      if (field.required && !value.trim()) {
+        newErrors[field.key] = `${field.label} is required`;
+        return;
+      }
+
+      if (
+        field.validation === "email" &&
+        value &&
+        !/\S+@\S+\.\S+/.test(value)
+      ) {
+        newErrors[field.key] = "Enter a valid email";
+      }
+
+      if (field.validation === "phone" && value && value.length !== 10) {
+        newErrors[field.key] = "Phone must be 10 digits";
+      }
+
+      if (field.validation === "number" && value && Number(value) < 0) {
+        newErrors[field.key] = "Enter a valid number";
+      }
+    });
+
+    setErrors(newErrors);
+
+    return Object.keys(newErrors).length === 0;
+  };
+
   const handleNext = () => {
-    if (currentStep < formSteps.length - 1) {
+    if (!validateStep()) return;
+
+    if (currentStep < formSteps.length) {
       setCurrentStep((prev) => prev + 1);
     }
   };
@@ -97,11 +166,10 @@ const MultipartForm = () => {
           <Button title="Previous" onPress={handlePrevious} />
         )}
 
-        {currentStep === formSteps.length - 1 ? (
-          <Button title="Submit" onPress={() => console.log(formData)} />
-        ) : (
-          <Button title="Next" onPress={handleNext} />
-        )}
+        <Button
+          title={currentStep === formSteps.length - 1 ? "Review" : "Next"}
+          onPress={handleNext}
+        />
       </View>
     </SafeAreaView>
   );
