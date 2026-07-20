@@ -92,7 +92,7 @@ const OtpVerify = () => {
       </View>
       <View style={styles.otpContainer}>
         {arr.map((_, index) => (
-          <TextInput
+          <TextInput 
             key={index}
             ref={(ref) => {
               inputRefs.current[index] = ref;

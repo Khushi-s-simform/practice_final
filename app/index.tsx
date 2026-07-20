@@ -4,6 +4,8 @@ import StopWatch from "./StopWatch";
 import OtpVerify from "./OtpVerify";
 import MultipartForm from "./MultipartForm";
 import ImageGallery from "./ImageGallery";
+import NumberGuessGame from "./NumberGuess";
+import ContactList from "./ContactList/ContactList";
 
 const index = () => {
   return (
@@ -11,7 +13,9 @@ const index = () => {
     /*   <StopWatch /> */
     /*  <OtpVerify /> */
     /*  <MultipartForm />  */
-    <ImageGallery />
+    /*  <ImageGallery /> */
+    /*  <NumberGuessGame /> */
+    <ContactList />
   );
 };
 

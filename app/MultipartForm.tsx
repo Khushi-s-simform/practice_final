@@ -1,6 +1,6 @@
 import CustomInput from "@/components/customInput";
 import formSteps from "@/data/FormSteps";
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import {
   Button,
   KeyboardAvoidingView,
@@ -8,6 +8,7 @@ import {
   ScrollView,
   StyleSheet,
   Text,
+  TextInput,
   View,
 } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
@@ -16,6 +17,8 @@ import ReviewScreen from "./ReviewScreen";
 const MultipartForm = () => {
   const [currentStep, setCurrentStep] = useState(0);
 
+  const inputRefs = useRef<TextInput[]>([]);
+  
   const [formData, setFormData] = useState({
     firstName: "khushi ",
     lastName: "shah",
@@ -147,15 +150,30 @@ const MultipartForm = () => {
           keyboardShouldPersistTaps="handled"
           showsVerticalScrollIndicator={false}
         >
-          {currentForm.fields.map((field) => (
+          {currentForm.fields.map((field, index) => (
             <CustomInput
               key={field.key}
+              ref={(ref) => {
+                if (ref) {
+                  inputRefs.current[index] = ref;
+                }
+              }}
               label={field.label}
               placeholder={field.placeholder}
               keyboardType={field.keyboardType}
               value={formData[field.key as keyof typeof formData]}
               onChangeText={(text) => handleChange(field.key, text)}
               error={errors[field.key]}
+              returnKeyType={
+                index === currentForm.fields.length - 1 ? "done" : "next"
+              }
+              onSubmitEditing={() => {
+                if (index < currentForm.fields.length - 1) {
+                  inputRefs.current[index + 1]?.focus();
+                } else {
+                  handleNext();
+                }
+              }}
             />
           ))}
         </ScrollView>
