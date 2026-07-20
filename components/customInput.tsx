@@ -1,25 +1,30 @@
-import React from "react";
+import React, { forwardRef } from "react";
 import {
-    StyleSheet,
-    Text,
-    TextInput,
-    TextInputProps,
-    View,
+  StyleSheet,
+  Text,
+  TextInput,
+  TextInputProps,
+  View,
 } from "react-native";
 
 interface CustomInputProps extends TextInputProps {
   label: string;
   error?: string;
 }
-const CustomInput = ({ label, error, ...rest }: CustomInputProps) => {
-  return (
-    <View style={styles.container}>
-      <Text style={styles.label}>{label}</Text>
-      <TextInput style={styles.input} {...rest} />
-      {error && <Text style={styles.error}>{error}</Text>}
-    </View>
-  );
-};
+
+const CustomInput = forwardRef<TextInput, CustomInputProps>(
+  ({ label, error, ...props }, ref) => {
+    return (
+      <View style={styles.container}>
+        <Text style={styles.label}>{label}</Text>
+        <TextInput ref={ref} style={styles.input} {...props} />
+        {error && <Text style={styles.error}>{error}</Text>}
+      </View>
+    );
+  },
+);
+
+CustomInput.displayName = "CustomInput";
 
 export default CustomInput;
 
