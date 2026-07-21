@@ -81,6 +81,11 @@ const styles = StyleSheet.create({
     marginTop: 4,
     fontSize: 14,
     color: "#777",
+    },
+  sectionDivider: {
+    height: 1,
+    backgroundColor: "#E0E0E0",
+    marginVertical: 8,
   },
 });
 export default styles;

@@ -56,10 +56,10 @@ const ContactList = () => {
         renderSectionHeader={({ section }) => (
           <View style={styles.sectionHeader}>
             <Text style={styles.sectionTitle}>{section.title}</Text>
-          </View>
+            </View>
         )}
         renderItem={({ item }) => (
-          <View style={styles.contactCard}>
+            <View style={styles.contactCard}>
             <View style={styles.avatar}>
               <Text style={styles.avatarText}>
                 {item.name.charAt(0).toUpperCase()}
@@ -71,6 +71,7 @@ const ContactList = () => {
               <Text style={styles.phone}>{item.phone}</Text>
             </View>
             {item.favorite === true && <Text>Fav.</Text>}
+              <View style={styles.sectionDivider} />  
           </View>
         )}
       />
