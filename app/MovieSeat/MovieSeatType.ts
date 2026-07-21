@@ -3,7 +3,6 @@ interface seat {
   seatNO: string;
   booked: boolean;
   selected: boolean;
-  premium?: boolean;
 }
 
 export default seat;

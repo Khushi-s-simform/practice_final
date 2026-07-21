@@ -1,282 +1,99 @@
 import { StyleSheet } from "react-native";
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#07111f",
+  seatcard: {
+    borderRadius: 5,
+    backgroundColor: "#d3d0d0",
+    justifyContent: "center",
+    padding: 20,
+    margin: 5,
   },
-  scrollContent: {
-    paddingHorizontal: 16,
-    paddingBottom: 24,
+  available: {
+    backgroundColor: "green",
   },
-  heroCard: {
-    backgroundColor: "#101c35",
-    borderRadius: 24,
-    padding: 18,
-    marginTop: 12,
-    shadowColor: "#000",
-    shadowOffset: { width: 0, height: 10 },
-    shadowOpacity: 0.2,
-    shadowRadius: 18,
-    elevation: 6,
+  selected: {
+    backgroundColor: "blue",
   },
-  heroTop: {
+  booked: {
+    backgroundColor: "red",
+  },
+  Bookbtn: {
+    backgroundColor: "blue",
+    width: 250,
+    alignItems: "center",
+    height: 30,
+    justifyContent: "center",
+    borderRadius: 12,
+    marginTop: 20,
+  },
+  btnText: {
+    color: "#ffffff",
+    fontSize: 18,
+    fontWeight: "600",
+  },
+  summaryContainer: {
+    marginTop: 20,
+    marginHorizontal: 16,
+    padding: 16,
+    backgroundColor: "#fff",
+    borderRadius: 12,
+    elevation: 4,
+  },
+
+  heading: {
+    fontSize: 20,
+    fontWeight: "bold",
+    marginBottom: 12,
+  },
+
+  seatTextContainer: {
     flexDirection: "row",
-    justifyContent: "space-between",
-    alignItems: "flex-start",
   },
-  heroTextBlock: {
-    flex: 1,
-    paddingRight: 12,
-  },
-  badge: {
-    color: "#7dd3fc",
-    fontSize: 12,
-    fontWeight: "700",
-    letterSpacing: 1.2,
-    textTransform: "uppercase",
+  seatText: {
+    fontSize: 16,
     marginBottom: 6,
   },
-  movieTitle: {
-    color: "#fff",
-    fontSize: 24,
-    fontWeight: "800",
-  },
-  movieSubtitle: {
-    color: "#cbd5e1",
-    fontSize: 13,
-    marginTop: 4,
-  },
-  pricePill: {
-    backgroundColor: "#2563eb",
-    borderRadius: 999,
-    paddingHorizontal: 12,
-    paddingVertical: 8,
-  },
-  priceText: {
-    color: "#fff",
-    fontWeight: "700",
-    fontSize: 16,
-  },
-  heroStats: {
-    flexDirection: "row",
-    marginTop: 16,
-  },
-  statBox: {
-    flex: 1,
-    backgroundColor: "rgba(255,255,255,0.08)",
-    borderRadius: 14,
-    paddingVertical: 10,
-    alignItems: "center",
-    marginRight: 10,
-  },
-  statValue: {
-    color: "#fff",
-    fontWeight: "700",
-    fontSize: 14,
-  },
-  statLabel: {
-    color: "#94a3b8",
-    fontSize: 11,
-    marginTop: 2,
-  },
-  theaterSection: {
-    marginTop: 20,
-    backgroundColor: "#ffffff",
-    borderRadius: 24,
-    padding: 16,
-    shadowColor: "#000",
-    shadowOffset: { width: 0, height: 8 },
-    shadowOpacity: 0.12,
-    shadowRadius: 12,
-    elevation: 4,
-  },
-  sectionTitle: {
-    fontSize: 18,
-    fontWeight: "800",
-    color: "#0f172a",
-    marginBottom: 8,
-  },
-  screenPreview: {
-    alignItems: "center",
-    marginBottom: 16,
-  },
-  screenFrame: {
-    width: "92%",
-    borderWidth: 2,
-    borderColor: "#e2e8f0",
-    borderTopLeftRadius: 24,
-    borderTopRightRadius: 24,
-    paddingVertical: 12,
-    paddingHorizontal: 16,
-    alignItems: "center",
-    backgroundColor: "#f8fafc",
-  },
-  screenGlow: {
-    width: "88%",
-    height: 32,
-    borderRadius: 999,
-    backgroundColor: "#f59e0b",
-    opacity: 0.95,
-    transform: [{ skewX: "-12deg" }],
-  },
-  screenLabel: {
-    marginTop: 6,
-    fontSize: 12,
-    fontWeight: "700",
-    color: "#64748b",
-    letterSpacing: 2,
-  },
-  legendRow: {
-    flexDirection: "row",
-    justifyContent: "space-between",
-    marginBottom: 16,
-    paddingHorizontal: 4,
-  },
-  legendItem: {
-    flexDirection: "row",
-    alignItems: "center",
-  },
-  legendDot: {
-    width: 12,
-    height: 12,
-    borderRadius: 6,
-    marginRight: 6,
-  },
-  legendText: {
-    fontSize: 12,
-    color: "#475569",
-  },
-  seatMap: {
-    marginTop: 6,
-  },
-  row: {
-    flexDirection: "row",
-    alignItems: "center",
-    marginBottom: 8,
-  },
-  rowLabel: {
-    width: 24,
-    fontSize: 13,
-    fontWeight: "700",
-    color: "#475569",
-    textAlign: "center",
-  },
-  rowSeats: {
-    flex: 1,
-    flexDirection: "row",
-    justifyContent: "space-between",
-  },
-  seatButton: {
-    width: 40,
-    height: 40,
-    borderRadius: 12,
-    alignItems: "center",
-    justifyContent: "center",
-    borderWidth: 1,
-  },
-  availableSeat: {
-    backgroundColor: "#f8fafc",
-    borderColor: "#cbd5e1",
-  },
-  premiumSeat: {
-    backgroundColor: "#fef3c7",
-    borderColor: "#f59e0b",
-  },
-  selectedSeat: {
-    backgroundColor: "#2563eb",
-    borderColor: "#2563eb",
-  },
-  bookedSeat: {
-    backgroundColor: "#0f172a",
-    borderColor: "#0f172a",
-  },
-  seatButtonText: {
-    color: "#0f172a",
-    fontSize: 12,
-    fontWeight: "700",
-  },
-  seatButtonTextSelected: {
-    color: "#fff",
-  },
-  summaryCard: {
-    marginTop: 20,
-    backgroundColor: "#fff",
-    borderRadius: 24,
-    padding: 16,
-    shadowColor: "#000",
-    shadowOffset: { width: 0, height: 8 },
-    shadowOpacity: 0.12,
-    shadowRadius: 12,
-    elevation: 4,
-  },
-  summaryHeader: {
-    flexDirection: "row",
-    justifyContent: "space-between",
-    alignItems: "center",
-  },
-  summaryTitle: {
-    fontSize: 18,
-    fontWeight: "800",
-    color: "#0f172a",
-  },
-  summarySubtitle: {
-    fontSize: 13,
-    color: "#64748b",
-  },
-  selectedSeatsWrap: {
+  selectedSeatContainer: {
     flexDirection: "row",
     flexWrap: "wrap",
-    marginTop: 12,
-    minHeight: 44,
+    marginTop: 10,
   },
-  selectedChip: {
-    backgroundColor: "#dbeafe",
-    borderRadius: 999,
-    paddingHorizontal: 10,
-    paddingVertical: 6,
+
+  selectedSeatChip: {
+    backgroundColor: "#2563EB",
+    paddingHorizontal: 12,
+    paddingVertical: 8,
+    borderRadius: 20,
     marginRight: 8,
     marginBottom: 8,
   },
-  selectedChipText: {
-    color: "#1d4ed8",
-    fontWeight: "700",
+
+  selectedSeatText: {
+    color: "#fff",
+    fontWeight: "bold",
   },
   emptyText: {
-    fontSize: 14,
-    color: "#94a3b8",
+    fontSize: 16,
+    color: "gray",
     fontStyle: "italic",
+    marginBottom: 12,
   },
-  summaryInfoRow: {
+
+  infoRow: {
     flexDirection: "row",
     justifyContent: "space-between",
     marginTop: 12,
   },
+
   label: {
-    fontSize: 14,
-    color: "#64748b",
-  },
-  value: {
-    fontSize: 15,
-    fontWeight: "700",
-    color: "#111827",
-  },
-  summaryDivider: {
-    height: 1,
-    backgroundColor: "#e5e7eb",
-    marginTop: 12,
-  },
-  bookButton: {
-    backgroundColor: "#2563eb",
-    borderRadius: 16,
-    paddingVertical: 14,
-    alignItems: "center",
-    marginTop: 16,
-  },
-  bookButtonText: {
-    color: "#fff",
     fontSize: 16,
-    fontWeight: "700",
+    fontWeight: "600",
+  },
+
+  value: {
+    fontSize: 16,
+    fontWeight: "bold",
+    color: "#2563EB",
   },
 });
 
