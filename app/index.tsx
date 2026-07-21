@@ -1,11 +1,5 @@
 import React from "react";
-import ExpenseTracker from "./ExpenseTracker";
-import StopWatch from "./StopWatch";
-import OtpVerify from "./OtpVerify";
-import MultipartForm from "./MultipartForm";
-import ImageGallery from "./ImageGallery";
-import NumberGuessGame from "./NumberGuess";
-import ContactList from "./ContactList/ContactList";
+import Splitwise from "./SplitWise/Splitwise";
 
 const index = () => {
   return (
@@ -15,7 +9,8 @@ const index = () => {
     /*  <MultipartForm />  */
     /*  <ImageGallery /> */
     /*  <NumberGuessGame /> */
-    <ContactList />
+    /*  <ContactList /> */
+    <Splitwise />
   );
 };
 
