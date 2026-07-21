@@ -1,5 +1,6 @@
 import React from "react";
 import Splitwise from "./SplitWise/Splitwise";
+import MovieSeat from "./MovieSeat/MovieSeat";
 
 const index = () => {
   return (
@@ -10,7 +11,8 @@ const index = () => {
     /*  <ImageGallery /> */
     /*  <NumberGuessGame /> */
     /*  <ContactList /> */
-    <Splitwise />
+    /*   <Splitwise /> */
+    <MovieSeat />
   );
 };
 

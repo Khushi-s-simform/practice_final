@@ -8,7 +8,7 @@ const StopWatch = () => {
   const [laps, setLaps] = useState<string[]>([]);
 
   useEffect(() => {
-    let interval: NodeJS.Timeout;
+    let interval: number | undefined;
 
     if (isRunning) {
       interval = setInterval(() => {

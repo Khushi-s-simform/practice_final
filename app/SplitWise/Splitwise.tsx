@@ -13,6 +13,7 @@ const Splitwise = () => {
   const [expenses, setExpenses] = useState<Split[]>([]);
   const inputRefs = useRef<TextInput[]>([]);
   const [submitted, setSubmitted] = useState(false);
+
   const validateInputs = () => {
     if (!title.trim()) {
       return `title is required`;
@@ -49,6 +50,10 @@ const Splitwise = () => {
     setStep(1);
   };
 
+  const deleteExpense = (id: number) => {
+    setExpenses(expenses.filter((expense) => expense.id !== id));
+  };
+
   const totalAmount = expenses.reduce(
     (total, expense) => total + expense.amount,
     0,
@@ -69,8 +74,6 @@ const Splitwise = () => {
     paid: paidAmounts[person],
     balance: paidAmounts[person] - eachShare,
   }));
-
-  console.log(balances);
 
   return (
     <SafeAreaView style={styles.container}>
@@ -173,6 +176,12 @@ const Splitwise = () => {
             <Text style={styles.expenseTitle}>{item.title}</Text>
             <Text style={styles.expenseAmount}>${item.amount.toFixed(2)}</Text>
             <Text style={styles.expensePaidBy}>Paid by: {item.paidby}</Text>
+            <Pressable
+              onPress={() => deleteExpense(item.id)}
+              style={styles.deleteButton}
+            >
+              <Text style={styles.deleteText}>Delete</Text>
+            </Pressable>
           </View>
         )}
         ListFooterComponent={
