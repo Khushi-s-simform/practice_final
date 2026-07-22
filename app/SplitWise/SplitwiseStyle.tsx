@@ -108,7 +108,6 @@ const styles = StyleSheet.create({
   },
 
   splitAmountContainer: {
-   
     marginTop: 20,
     backgroundColor: "#fff",
     borderRadius: 16,
@@ -155,6 +154,17 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: "700",
     color: "#D32F2F",
+  },
+  deleteText: {
+    fontSize: 14,
+    color: "#D32F2F",
+    fontWeight: "600",
+  },
+  deleteButton: {
+    backgroundColor: "#FEE2E2",
+    paddingVertical: 6,
+    paddingHorizontal: 12,
+    borderRadius: 8,
   },
 });
 
